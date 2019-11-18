@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use('/addressBook', addressBookController);
 
-mongoose.connect('mongodb://localhost:27017/bookmarks', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/addressBook', { useNewUrlParser: true });
 
 mongoose.connection.once('open', () => {
 	console.log('connected to mongoose ......')
