@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="MyApp">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+        <script src="app.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+
+<!-- ng-init="main.getAnimals()" -->
+    <body ng-controller = "MainCtrl as main" ng-init="main.getAnimals()">
+
+
+    <h1>Sunny Philadelphia Animal Shelter</h1>
+
+<hr>
+
+        <div class = "container">
+            <ul class = "cards">
+                <li ng-repeat = "animal in main.animalArray[0]" class = "card">
+                    <h1>{{animal.name}}</h1>
+                    <img ng-src='{{animal.image}}'>
+                    <p>Species: {{animal.species}}</p>
+                    <p>Breed: {{animal.breed}}</p>
+                    <p>Sex: {{animal.sex}}</p>
+                    <p>Age: {{animal.age}}</p>
+                    <p>Adopted?: {{animal.adopted}}</p>
+                    <form ng-submit="main.editAnimal(animal);">
+                        <input type="text" ng-model="main.updatedAnimalName" placeholder="Name"/>
+                        <input type="text" ng-model="main.updatedAnimalSpecies" placeholder="Species"/>
+                        <input type="text" ng-model="main.updatedAnimalBreed" placeholder="Breed"/>
+                        <input type="text" ng-model="main.updatedAnimalSex" placeholder="Sex"/>
+                        <input type="text" ng-model="main.updatedAnimalImage" placeholder="ImageURL"/>
+                        <input type="number" ng-model="main.updatedAnimalAge" placeholder="Age"/>
+                        <input type="submit" value="Edit Animal"/>
+                    </form>
+                    <button ng-click="main.deleteAnimal(animal)">Delete Animal</button>
+                </li>
+            </ul>
+        </div>
+
+<hr>
+
+        <div class="container">
+        <form ng-submit="main.createAnimal()">
+            ADD AN ADOPTABLE PET
+            <input type="text" ng-model="main.animalName" placeholder="Name"/>
+            <input type="text" ng-model="main.animalSpecies" placeholder="Species"/>
+            <input type="text" ng-model="main.animalBreed" placeholder="Breed"/>
+            <input type="text" ng-model="main.animalSex" placeholder="Sex"/>
+            <input type="text" ng-model="main.animalImage" placeholder="ImageURL"/>
+            <input type="number" ng-model="main.animalAge" placeholder="Age"/>
+            <input type="submit" value="Add Animal"/>
+        </form>
+        </div>
+
+    </body>
+
+
+
+
+</html>
