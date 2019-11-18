@@ -41,6 +41,10 @@ this.showOptions = {};
         }).then(function(response){
             console.log(response);
             controller.getContacts();
+            controller.contactName ="";
+            controller.contactPhone ="";
+            controller.contactEmail ="";
+            controller.contactAddress ="";
         }, function(){
             console.log('error');
         });
@@ -74,6 +78,10 @@ this.showOptions = {};
     }).then(
         function(response){
             controller.getContacts();
+            controller.updatedContactName ="";
+            controller.updatedContactPhone ="";
+            controller.updatedContactEmail ="";
+            controller.updatedContactAddress ="";
         },
         function(error){
 
