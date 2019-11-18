@@ -4,15 +4,15 @@ ng.controller('MainCtrl', [ '$http', function($http){
 
 controller = this;
 
-    this.getAnimals = () => {
+    this.getContacts = () => {
 
         $http({
             method:'GET',
-            url: '/animalsapi',
+            url: '/contactsapi',
         }).then(function(response){
             console.log(response);
-            controller.animalArray = [response.data];
-            console.log(controller.animalArray);
+            controller.contactArray = [response.data];
+            console.log(controller.contactArray);
         }, function(){
             console.log('error');
         });
@@ -21,35 +21,32 @@ controller = this;
     }
 
 
-    this.createAnimal = () => {
+    this.createContact = () => {
         $http({
             method:'POST',
-            url: '/animalsapi',
+            url: '/contactsapi',
             data: {
-              name: controller.animalName,
-              species: controller.animalSpecies,
-              breed: controller.animalBreed,
-              sex: controller.animalSex,
-              image: controller.animalImage,
-              age: controller.animalAge,
-              adopted: false
+              name: controller.contactName,
+              phone: controller.contactPhone,
+              email: controller.contactEmail,
+              address: controller.contactAddress
             }
         }).then(function(response){
             console.log(response);
-            controller.getAnimals();
+            controller.getContacts();
         }, function(){
             console.log('error');
         });
     }
 
 
-    this.deleteAnimal = function(animal){
+    this.deleteContact = function(contact){
     $http({
         method:'DELETE',
-        url: '/animalsapi/' + animal._id
+        url: '/contactsapi/' + contact._id
     }).then(
         function(response){
-            controller.getAnimals();
+            controller.getContacts();
         },
         function(error){
 
@@ -57,21 +54,19 @@ controller = this;
     );
 }
 
-    this.editAnimal = function(animal){
+    this.editContact = function(contact){
         $http({
         method:'PUT',
-        url: '/animalsapi/' + animal._id,
+        url: '/contactsapi/' + contact._id,
         data: {
-            name: controller.updatedAnimalName,
-            species: controller.updatedAnimalSpecies,
-            breed: controller.updatedAnimalBreed,
-            sex: controller.updatedAnimalSex,
-            image: controller.updatedAnimalImage,
-            age: controller.updatedAnimalAge
+            name: controller.updatedContactName,
+            phone: controller.updatedContactPhone,
+            email: controller.updatedContactEmail,
+            address: controller.updatedContactAddress
         }
     }).then(
         function(response){
-            controller.getAnimals();
+            controller.getContacts();
         },
         function(error){
 
