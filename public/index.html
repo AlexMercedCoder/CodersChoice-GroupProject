@@ -27,7 +27,8 @@
                     <p>Phone: {{contact.phone}}</p>
                     <p>Email: {{contact.email}}</p>
                     <p>Address: {{contact.address}}</p>
-                    <form ng-submit="main.editContact(contact);">
+                    <button ng-click="main.showOpts(contact)">Show Options</button>
+                    <form ng-submit="main.editContact(contact);" ng-show="main.showOptions[contact.name]">
                         <input type="text" ng-model="main.updatedContactName" placeholder="Name"/>
                         <input type="text" ng-model="main.updatedContactPhone" placeholder="Phone"/>
                         <input type="text" ng-model="main.updatedContactEmail" placeholder="Email"/>

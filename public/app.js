@@ -3,6 +3,7 @@ const ng = angular.module('MyApp', []);
 ng.controller('MainCtrl', [ '$http', function($http){
 
 controller = this;
+this.showOptions = {};
 
     this.getContacts = () => {
 
@@ -17,6 +18,12 @@ controller = this;
             console.log('error');
         });
 
+
+    }
+
+    this.showOpts = (contact) => {
+
+        controller.showOptions[contact.name] = !controller.showOptions[contact.name]
 
     }
 
