@@ -1,5 +1,5 @@
 ### Group project
-## By Alex Merced &
+## By Alex Merced & Richard Brown
 
 ### About
 
