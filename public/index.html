@@ -29,9 +29,9 @@
                     <p>Address: {{contact.address}}</p>
                     <form ng-submit="main.editContact(contact);">
                         <input type="text" ng-model="main.updatedContactName" placeholder="Name"/>
-                        <input type="text" ng-model="main.updatedContactPhone" placeholder="Species"/>
-                        <input type="text" ng-model="main.updatedContactEmail" placeholder="Breed"/>
-                        <input type="text" ng-model="main.updatedContactAddress" placeholder="Sex"/>
+                        <input type="text" ng-model="main.updatedContactPhone" placeholder="Phone"/>
+                        <input type="text" ng-model="main.updatedContactEmail" placeholder="Email"/>
+                        <input type="text" ng-model="main.updatedContactAddress" placeholder="Address"/>
 
                         <input type="submit" value="Edit Contact"/>
                     </form>
@@ -46,9 +46,9 @@
         <form ng-submit="main.createContact()">
             ADD Contact Info
             <input type="text" ng-model="main.contactName" placeholder="Name"/>
-            <input type="text" ng-model="main.contactPhone" placeholder="Species"/>
-            <input type="text" ng-model="main.contactEmail" placeholder="Breed"/>
-            <input type="text" ng-model="main.contactAddress" placeholder="Sex"/>
+            <input type="text" ng-model="main.contactPhone" placeholder="Phone"/>
+            <input type="text" ng-model="main.contactEmail" placeholder="Email"/>
+            <input type="text" ng-model="main.contactAddress" placeholder="Address"/>
             <input type="submit" value="Add Contact"/>
         </form>
         </div>

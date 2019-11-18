@@ -5,7 +5,7 @@ const contactController = require("./controllers/addressBook.js");
 
 app.use(express.json());
 app.use(express.static('public'));
-app.use('/contact', contactController);
+app.use('/contactsapi', contactController);
 require('dotenv').config();
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
