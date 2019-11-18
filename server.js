@@ -1,13 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const bookMarksController = require("./controllers/addressBook.js");
+const contactController = require("./controllers/addressBook.js");
 
 app.use(express.json());
 app.use(express.static('public'));
-app.use('/addressBook', addressBookController);
-
-mongoose.connect('mongodb://localhost:27017/addressBook', { useNewUrlParser: true });
+app.use('/contact', contactController);
+require('dotenv').config();
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 mongoose.connection.once('open', () => {
 	console.log('connected to mongoose ......')
